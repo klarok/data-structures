@@ -5,15 +5,9 @@ var Queue = function() {
   queueObj.storage = {};
   queueObj.head = 0;
 
-  extend(queueObj, queueMethods);
+  _.extend(queueObj, queueMethods);
   return queueObj;
 };
-
-var extend = function(obj, methods) {
-	for (let key in methods) {
-		obj[key] = methods[key];
-	}
-}
 
 var queueMethods = {
 	enqueue: function(value) {

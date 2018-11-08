@@ -4,16 +4,10 @@ var Stack = function() {
   let stackObj = {};
   stackObj.storage = {};
 
-  extend(stackObj, stackMethods);
+  _.extend(stackObj, stackMethods);
 
   return stackObj;
 };
-
-var extend = function(obj, methods) {
-	for (let key in methods) {
-		obj[key] = methods[key];
-	}
-}
 
 var stackMethods = {
 	pop: function() {
