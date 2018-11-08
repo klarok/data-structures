@@ -3,6 +3,7 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   let stackObj = {};
   stackObj.storage = {};
+  stackObj.length = 0;
 
   _.extend(stackObj, stackMethods);
 
@@ -10,17 +11,20 @@ var Stack = function() {
 };
 
 var stackMethods = {
-	pop: function() {
-		let popped = this.storage[this.size() - 1];
-		delete this.storage[this.size() - 1];
-		return popped;
-	},
-	push: function(value) {
-		this.storage[this.size()] = value;
-	},
-	size: function() {
-		return Object.keys(this.storage).length;
-	}
+  pop: function() {
+    let popped = this.storage[this.length - 1];
+    delete this.storage[this.length - 1];
+    this.length = Math.max(this.length - 1, 0);
+    return popped;
+  },
+  push: function(value) {
+    this.storage[this.length] = value;
+    this.length += 1;
+  },
+  size: function() {
+    //return Object.keys(this.storage).length;
+    return this.length;
+  }
 };
 
 

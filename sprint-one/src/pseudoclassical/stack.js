@@ -6,20 +6,20 @@ var Stack = function() {
 };
 
 Stack.prototype.push = function(value) {
-	this.storage[this.length] = value;
-	this.length += 1;
+  this.storage[this.length] = value;
+  this.length += 1;
 };
 
 Stack.prototype.pop = function() {
-	let last = this.length - 1;
-	let popped = this.storage[last];
-	delete this.storage[last];
-	this.length = Math.max(last, 0);
-	return popped;
+  let last = this.length - 1;
+  let popped = this.storage[last];
+  delete this.storage[last];
+  this.length = Math.max(last, 0);
+  return popped;
 };
 
 Stack.prototype.size = function() {
-	return this.length;
+  return this.length;
 };
 
 
