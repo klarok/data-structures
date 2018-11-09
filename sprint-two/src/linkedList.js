@@ -4,13 +4,13 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
-   let currNode = Node(value)
-   let oldTail;
-    if(this.head === null){
+    let currNode = Node(value);
+    let oldTail;
+    if (this.head === null) {
       this.tail = currNode;
       this.head = currNode;
-    } else{
-      oldTail = this.tail
+    } else {
+      oldTail = this.tail;
       this.tail = currNode;
       oldTail.next = currNode;
     }
@@ -18,18 +18,18 @@ var LinkedList = function() {
 
   list.removeHead = function() {
     let oldHeadVal = this.head.value;
-    this.head = this.head.next
+    this.head = this.head.next;
     return oldHeadVal;
   };
 
   list.contains = function(target) {
     let currNode = this.head;
     let present = false;
-    while(currNode !== null){
-      if(target === currNode.value){
+    while (currNode !== null) {
+      if (target === currNode.value) {
         present = true;
         break;
-      } else{
+      } else {
         currNode = currNode.next;
 
       }
