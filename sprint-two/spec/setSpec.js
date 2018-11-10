@@ -24,4 +24,23 @@ describe('set', function() {
     expect(set.contains('Mel Gibson')).to.equal(false);
   });
 
+  it('should allow for numbers to be passed as values', function() {
+    set.add(1);
+    set.remove(1);
+    expect(set.contains(1)).to.equal(false);
+  });
+
+  it('Prevents multiple instances of the same value from being passed', function() {
+    set.add(1);
+    set.add(true)
+    set.add('Kara')
+    set.add(1);
+    set.remove('Kara')
+    set.remove(true)
+    set.remove(1);
+    expect(set.contains(1)).to.equal(false);
+    expect(set.contains(true)).to.equal(false);
+    expect(set.contains('Kara')).to.equal(false);
+  });
+
 });
