@@ -31,11 +31,22 @@ describe('linkedList', function() {
     expect(linkedList.head.value).to.equal(5);
   });
 
+  it('should set head and tail to null when list is emptied', function() {
+    linkedList.addToTail(1);
+    linkedList.addToTail(2);
+    linkedList.addToTail(3);
+    linkedList.addToTail(4);
+    for (let i = 0; i < 4; i++) {
+      linkedList.removeHead();
+    }
+    expect(linkedList.head).to.equal(null);
+    expect(linkedList.tail).to.equal(null);
+  });
+
   it('should return the value of the former head when removeHead is called', function() {
     linkedList.addToTail(4);
     expect(linkedList.removeHead()).to.equal(4);
   });
-
   it('should contain a value that was added', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(5);
