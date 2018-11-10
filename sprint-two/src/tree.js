@@ -1,7 +1,7 @@
 var Tree = function(value) {
   var newTree = {};
   newTree.value = value;
-  _.extend(newTree,treeMethods);
+  _.extend(newTree, treeMethods);
   newTree.children = []; 
     
 
@@ -39,6 +39,10 @@ treeMethods.contains = function(target) {
     }
   }
   return isThere;
+};
+
+treeMethods.mergeTrees = function(subTree) {
+  this.children.push(subTree);
 };
 
 

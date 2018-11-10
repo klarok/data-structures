@@ -40,5 +40,24 @@ describe('tree', function() {
     expect(tree.contains(7)).to.equal(true);
     expect(tree.contains(8)).to.equal(true);
   });
+  
+  it('should return undefined for a child added with no value', function() {
+    tree.addChild();
+    expect(tree.children[0].value).to.equal(undefined);
+  });
+  
+  it('should merge an existing subtree to the current tree', function() {
+    //Build main tree
+    tree.addChild(1);
+    tree.addChild(2);
+    //Build subtree
+    let subTree = Tree(5);
+    subTree.addChild(6);
+    subTree.children[0].addChild(17);
+    subTree.addChild(13);
+    
+    tree.mergeTrees(subTree);
+    expect(tree.contains(13)).to.equal(true);
+  });
 
 });
