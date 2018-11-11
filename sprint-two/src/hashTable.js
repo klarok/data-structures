@@ -30,6 +30,9 @@ HashTable.prototype.retrieve = function(k) {
   //     return bucket[i][1];
   //   }
   // }
+  if (bucket === undefined) {
+    return undefined;
+  }
   let existingIndex = this.findkey(bucket, k);
   return (existingIndex !== -1) ? bucket[existingIndex][1] : undefined;
 };

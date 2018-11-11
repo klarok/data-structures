@@ -57,6 +57,23 @@ BSTmethods.depthFirstLog = function(cb) {
   
 };
 
+BSTmethods.breadthFirstLog = function(cb) {
+  let traversalOrder = [];
+  traversalOrder.push(this);
+  
+  while (traversalOrder.length > 0) {
+    let curr = traversalOrder[0];
+    cb(curr.value);
+    if (curr.left !== null) {
+      traversalOrder.push(curr.left);
+    }
+    if (curr.right !== null) {
+      traversalOrder.push(curr.right);
+    }
+    traversalOrder.splice(0, 1);
+  }
+};
+
 
 /*
  * Complexity: What is the time complexity of the above functions?
