@@ -34,6 +34,15 @@ describe('hashTable', function() {
     hashTable.remove('Steven');
     expect(hashTable.retrieve('Steven')).to.equal(undefined);
   });
+  
+  
+  
+  it('should return undefined when attempting to retrieve value of key that was never inserted', function() {
+    expect(hashTable.retrieve('Arthur')).to.equal(undefined);
+  });
+  
+  
+  
 
   it('should handle hash function collisions', function() {
     var v1 = 'val1';
